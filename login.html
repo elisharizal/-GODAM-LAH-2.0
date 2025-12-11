@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart ID Flood Wallet - Login</title>
+    <link rel="stylesheet" href="login-styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🌟</div>
+            <h1>Smart ID Flood Wallet</h1>
+            <p class="subtitle">Emergency Assistance System</p>
+        </div>
+
+        <div class="content">
+            <div class="welcome-text">
+                <h2>Welcome Back</h2>
+                <p>Access your emergency funds instantly</p>
+            </div>
+
+            <div class="login-box">
+                <div class="scan-icon">📱</div>
+                <h3>Scan Your Smart ID</h3>
+                <p class="instruction">Hold your Smart ID card near the scanner or tap the button below</p>
+                
+                <button class="scan-button" onclick="showScanModal()">
+                    <span class="scan-icon-btn">🔍</span>
+                    Scan Smart ID
+                </button>
+
+                <div class="divider">
+                    <span>OR</span>
+                </div>
+
+                <form onsubmit="handleManualLogin(event)">
+                    <div class="input-group">
+                        <label for="smartId">Smart ID Number</label>
+                        <input type="text" id="smartId" placeholder="XXXXXX-XX-XXXX" maxlength="14" required>
+                    </div>
+
+                    <button type="submit" class="login-button">
+                        Login Manually
+                    </button>
+                </form>
+            </div>
+
+            <div class="info-banner">
+                <span class="info-icon">ℹ</span>
+                <div>
+                    <strong>Auto-verification enabled</strong><br>
+                    <small>Your location will be checked for flood zone status</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scan Modal -->
+    <div class="modal" id="scanModal">
+        <div class="modal-content">
+            <div class="scan-animation">
+                <div class="scanner-frame">
+                    <div class="corner corner-tl"></div>
+                    <div class="corner corner-tr"></div>
+                    <div class="corner corner-bl"></div>
+                    <div class="corner corner-br"></div>
+                    <div class="scan-line"></div>
+                    <div class="id-card-icon">💳</div>
+                </div>
+            </div>
+            
+            <h2>Scanning Smart ID</h2>
+            <p class="scan-status" id="scanStatus">Hold your Smart ID card steady...</p>
+            
+            <div class="loading-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <button class="cancel-button" onclick="closeScanModal()">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="success-icon">✅</div>
+            <h2>Verification Successful</h2>
+            <p>Smart ID: <strong id="verifiedId">870524-01-5847</strong></p>
+            <p class="success-message">Redirecting to your wallet...</p>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="login-script.js"></script>
+</body>
+</html>

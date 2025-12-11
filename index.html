@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart ID Flood Wallet</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌟 Smart ID Flood Wallet</h1>
+            <p class="subtitle">Emergency Assistance System</p>
+        </div>
+
+        <div class="content">
+            <div class="alert-banner">
+                <span class="alert-icon">⚠</span>
+                <div>
+                    <strong>Flood Alert Active</strong><br>
+                    <small>Your area has been identified as an impact zone</small>
+                </div>
+            </div>
+
+            <div class="id-section">
+                <div class="id-label">Smart ID Number</div>
+                <div class="id-number">870524-01-5847</div>
+            </div>
+
+            <div class="wallet-balance">
+                <div class="balance-label">Available Emergency Funds</div>
+                <div class="balance-amount">RM 350</div>
+                <div class="balance-status">✓ Auto-loaded | Expires: 31 Dec 2024</div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="action-btn" onclick="showModal('food')">
+                    <span class="action-icon">🍽</span>
+                    <span>Buy Food</span>
+                </button>
+
+                <button class="action-btn" onclick="showModal('transport')">
+                    <span class="action-icon">🚗</span>
+                    <span>Transport</span>
+                </button>
+
+                <button class="action-btn" onclick="showModal('medicine')">
+                    <span class="action-icon">💊</span>
+                    <span>Medicine</span>
+                </button>
+
+                <button class="action-btn" onclick="showModal('shelter')">
+                    <span class="action-icon">🏠</span>
+                    <span>Shelter</span>
+                </button>
+            </div>
+
+            <div class="info-box">
+                <strong>ℹ How it works:</strong><br>
+                Funds automatically loaded based on your Smart ID location.  
+                No application needed. Tap to use at verified merchants.
+            </div>
+
+            <button class="tap-button" onclick="showModal('tap')">
+                Tap Smart ID to Pay
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <div class="modal-icon" id="modalIcon">🔔</div>
+            <h2 id="modalTitle">Payment Ready</h2>
+            <p id="modalText">Tap your Smart ID to proceed.</p>
+            <button class="modal-button" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function showModal(type) {
+            const modal = document.getElementById('modal');
+            const icon = document.getElementById('modalIcon');
+            const title = document.getElementById('modalTitle');
+            const text = document.getElementById('modalText');
+
+            if (type === "food") {
+                icon.innerHTML = "🍽";
+                title.innerText = "Food Payment Ready";
+                text.innerText = "Tap your Smart ID at any verified vendor to complete purchase.";
+            }
+
+            else if (type === "transport") {
+                icon.innerHTML = "🚗";
+                title.innerText = "Transport Payment Ready";
+                text.innerText = "Use your Smart ID for evacuation transport or taxi service.";
+            }
+
+            else if (type === "medicine") {
+                icon.innerHTML = "💊";
+                title.innerText = "Medicine Payment Ready";
+                text.innerText = "Visit any registered pharmacy and tap your Smart ID to pay.";
+            }
+
+            else if (type === "shelter") {
+                icon.innerHTML = "🏠";
+                title.innerText = "Shelter Access Ready";
+                text.innerText = "Present your Smart ID at designated shelter location entry.";
+            }
+
+            else {
+                icon.innerHTML = "💳";
+                title.innerText = "Ready to Pay";
+                text.innerText = "Tap your Smart ID to proceed.";
+            }
+
+            modal.classList.add("active");
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+    </script>
+
+</body>
+</html>
